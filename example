@@ -1,0 +1,1 @@
+java.util.Scanner[delimiters=\p{javaWhitespace}+][position=0][match valid=false][need input=false][source closed=false][skipped=false][group separator=\x{a0}][decimal separator=\x{2c}][positive prefix=][negative prefix=\Q-\E][positive suffix=][negative suffix=][NaN string=\Qне число\E][infinity string=\Q∞\E]
