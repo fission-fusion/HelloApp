@@ -10,6 +10,7 @@ fun main() {
     )
 
     println(employees.sorted())
+    println(employees.sortedBy {it.name})
     println(employees.sortedWith { e1: Employee, e2: Employee -> e1.age - e2.age})
     println(employees.sortedWith(compareBy {it.salary} ))
 
