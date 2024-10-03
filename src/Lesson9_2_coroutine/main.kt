@@ -4,7 +4,7 @@ import kotlinx.coroutines.*
 
 fun main(): Unit = runBlocking {
     task1()
-    task2()
+    //task2()
 }
 
 suspend fun task1() = coroutineScope {
@@ -26,14 +26,14 @@ suspend fun task1() = coroutineScope {
                 delay(2000L)
                 println("Покупка отменена.")
             }
-        } else throw Exception("Ошибка")
+        } else throw Error("Требуется ввод 1 или 2")
     }
     println("Программа покупки продуктов")
     job.join()
     println("До свидания")
 }
 
-suspend fun task2() = coroutineScope {
+suspend fun task2() = runBlocking {
     println("Начало программы")
     val job = launch {
         for (i in 1..4) {
@@ -42,11 +42,11 @@ suspend fun task2() = coroutineScope {
         }
     }
     val job2 = launch(start = CoroutineStart.LAZY) {
-        delay(2001L)
+        delay(1000L)
         println("Произошел ленивый запуск")
     }
     val job3 = launch(start = CoroutineStart.LAZY) {
-        delay(4001L)
+        delay(4000L)
         println("Программа завершена")
     }
     job3.start()
