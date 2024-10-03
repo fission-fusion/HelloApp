@@ -4,7 +4,7 @@ import kotlinx.coroutines.*
 
 fun main(): Unit = runBlocking {
     task1()
-    //task2()
+    task2()
 }
 
 suspend fun task1() = coroutineScope {
