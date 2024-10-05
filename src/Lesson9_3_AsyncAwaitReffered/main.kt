@@ -34,7 +34,7 @@ fun getRandomCharsList(): List<Char> {
 }
 
 suspend fun <T> unpack(list: List<T>): Int {
-    for (i in 0..list.size - 1) {
+    for (i in list.indices) {
         println("Элемент списка: ${list[i]}, количество элементов: ${i + 1}")
         delay(1000L)
     }
