@@ -10,8 +10,8 @@ suspend fun main() = runBlocking {
         val charsList = getRandomCharsList()
 
         val job = launch {
-            val numbersUnpack = async(start = CoroutineStart.LAZY) { println("Количество элементов первого спика: ${unpack(numbersList)}") }
-            val charsUnpack = async(start = CoroutineStart.LAZY) { println("Количество элементов второго спика: ${unpack(charsList)}") }
+            val numbersUnpack = async() { println("Количество элементов первого спика: ${unpack(numbersList)}") }
+            val charsUnpack = async() { println("Количество элементов второго спика: ${unpack(charsList)}") }
 
             numbersUnpack.start()
             charsUnpack.start()
@@ -19,6 +19,7 @@ suspend fun main() = runBlocking {
         job.join()
 
         val concatenatedLists = concatenate(numbersList, charsList)
+        println(concatenatedLists.first)
         println(concatenatedLists.second)
     }
 
